@@ -1,3 +1,5 @@
+// for the entire App (not just a sigle activity) we have access to did the app startedd did the app
+// closed
 //
 //  AppDelegate.swift
 //  Lec2Part2
