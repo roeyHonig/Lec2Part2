@@ -34,7 +34,7 @@ class ViewController: UIViewController {
         
         // write code that finds the max value in the fibonachi array :-)
         if let fibonachy = dictOfSeries["Fibonachy"]{
-            var fibMax = 0
+            var fibMax = fibonachy[0]
             for fibNum in fibonachy{
                 if fibNum > fibMax {
                     fibMax = fibNum
