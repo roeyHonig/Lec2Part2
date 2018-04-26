@@ -68,20 +68,39 @@ class ViewController: UIViewController {
             print("Hello, \(to)")
         }
         
-        func max(arr:[Int])->Int{
-            return 0 // HW...
+        
+        
+        func maxOfArray(arr:[Int])->Int{
+            var max = arr[0]
+            for item in arr {
+                if item > max {
+                    max = item
+                }
+            }
+            return max
         }
         
-        func min(arr:[Int])->Int{
-            return 0 // HW...
+        func minOfArray(arr:[Int])->Int{
+            var min = arr[0]
+            for item in arr {
+                if item < min {
+                    min = item
+                }
+            }
+            return min
         }
         
-        func average(arr:[Int])->Double{
-            return 0 // HW...
+        func AverageOfArray(arr:[Int])->Double{
+            let avg = sumOfArray(arr: arr) / Double(arr.count)
+            return avg
         }
         // tryme
-        func sum(arr:[Int])->Double{
-            return 0 // HW...
+        func sumOfArray(arr:[Int])->Double{
+            var sum = 0.0
+            for item in arr {
+                sum = sum + Double(item)
+            }
+            return sum
         }
         
         //Tupple = retrun whatever you want
@@ -96,10 +115,15 @@ class ViewController: UIViewController {
     
         //caling the function
         sayHello(to: "roey", on: "2.8.1982")
-    
-    
-    
-}
+        
+        let testArry = [7,9,4,2]
+        print("The max in the Array: \(maxOfArray(arr: testArry))")
+        print("The min in the Array: \(minOfArray(arr: testArry))")
+        print("The sum of the Array: \(sumOfArray(arr: testArry))")
+        print("The Average of the Array: \(AverageOfArray(arr: testArry))")
+        
+        
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
