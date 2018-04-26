@@ -79,7 +79,7 @@ class ViewController: UIViewController {
         func average(arr:[Int])->Double{
             return 0 // HW...
         }
-        
+        // tryme
         func sum(arr:[Int])->Double{
             return 0 // HW...
         }
