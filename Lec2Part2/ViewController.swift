@@ -47,9 +47,55 @@ class ViewController: UIViewController {
             print("nil")
         }
         
+        var max = 0
+        // write code that finds the max value in all the series :-)
+        for (name, arr) in dictOfSeries{
+            for item in arr {
+                if item > max {
+                    max = item
+                }
+            }
+        }
+        print(max)
         
         
+        // this how we write functions, no need to write void
+        func sayHello(){
+            
+        }
+        
+        func sayHello(to:String){
+            print("Hello, \(to)")
+        }
+        
+        func max(arr:[Int])->Int{
+            return 0 // HW...
+        }
+        
+        func min(arr:[Int])->Int{
+            return 0 // HW...
+        }
+        
+        func average(arr:[Int])->Double{
+            return 0 // HW...
+        }
+        
+        func sum(arr:[Int])->Double{
+            return 0 // HW...
+        }
+        
+        //Tupple = retrun whatever you want
+        func statistics(arr:[Int])->(Int,Int,Int,Double){
+            return (0,0,0,0.0) // HW...
+        }
+        // function with Argument labels
+        func sayHello(to name:String, on birthday:String){
+            // if birthday
+            print("Hello, \(name) , happy bithday")
+        }
     
+        //caling the function
+        sayHello(to: "roey", on: "2.8.1982")
     
     
     
