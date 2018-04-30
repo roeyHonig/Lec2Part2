@@ -15,48 +15,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         // this type is [String: [Int]] meaning the keys are Strings and the Values are Strings
-        let dictOfSeries = [
-            "Prime": [2,3,5,7,11,13],
-            "Fibonachy": [1,1,2,3,5,8,13],
-            "Square": [1,4,9,16,25]
-        ]
-        print(dictOfSeries)
-        print("hello, world")
-        print("yes")
-        //mutable => var
-        //imutable => let
-        if let primes = dictOfSeries["Prime"]{
-            print(primes)
-        } else {
-            print("nillllllll")
-        }
         
-        
-        // write code that finds the max value in the fibonachi array :-)
-        if let fibonachy = dictOfSeries["Fibonachy"]{
-            var fibMax = fibonachy[0]
-            for fibNum in fibonachy{
-                if fibNum > fibMax {
-                    fibMax = fibNum
-                }
-            }
-            print("The Largest Number in Fibonachi is: \(fibMax)")
-            
-    
-        } else {
-            print("nil")
-        }
-        
-        var max = 0
-        // write code that finds the max value in all the series :-)
-        for (name, arr) in dictOfSeries{
-            for item in arr {
-                if item > max {
-                    max = item
-                }
-            }
-        }
-        print(max)
         
         
         // this how we write functions, no need to write void
@@ -105,7 +64,11 @@ class ViewController: UIViewController {
         
         //Tupple = retrun whatever you want
         func statistics(arr:[Int])->(Int,Int,Int,Double){
-            return (maxOfArray(arr: arr),minOfArray(arr: arr),sumOfArray(arr: arr),AverageOfArray(arr: arr))
+            let max = maxOfArray(arr: arr)
+            let min = minOfArray(arr: arr)
+            let sum = sumOfArray(arr: arr)
+            let ave = AverageOfArray(arr: arr)
+            return (max,min,sum,ave)
         }
         // function with Argument labels
         func sayHello(to name:String, on birthday:String){
@@ -123,6 +86,32 @@ class ViewController: UIViewController {
         print("The Average of the Array: \(AverageOfArray(arr: testArry))")
         print("The Tupple is: \(statistics(arr: testArry))")
         
+        // lets dive a bit into Tupple
+        // option 1:
+        // assign the tupple to a single variable
+        let stats = statistics(arr: testArry)
+        print("Avg: \(stats.3)")
+        print("Sum: \(stats.2)")
+        
+        //option2:
+        //Tuple Destructring
+        // the underscore "_" is the fix of the warning to why do we declare locale variables but never use them
+        // so the "_" tells swift, ok, i don't care about them, go ahead and garbage collect them right now
+        let (_, _, sum, avg) = statistics(arr: testArry)
+        print("Avg: \(avg)")
+        print("Sum: \(sum)")
+        
+        //option3:
+        //Tuple - adding names to the expectedd results of the function
+        func improvedStatistics(arr:[Int])->(min:Int, max: Int, sum: Int, avg: Double){
+            let max = maxOfArray(arr: arr)
+            let min = minOfArray(arr: arr)
+            let sum = sumOfArray(arr: arr)
+            let avg = AverageOfArray(arr: arr)
+            return (max,min,sum,avg)
+        }
+        
+        
         
     }
 
@@ -131,6 +120,6 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-        
+    
 }
 
