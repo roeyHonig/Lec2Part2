@@ -52,8 +52,14 @@ class ViewController: UIViewController {
         // Global function print
         print("hi, i'm print function, i'm a global function. you can call me from everywhere in the program")
         
-        print("Here is a random number")
-        print(createARandom(upperLimit: 10))
+        let upperBound = 10
+        for i in 1...20{
+            print("Here is a random number between 0 and  \(upperBound)")
+            print(createARandom(upperLimit: upperBound))
+            
+        }
+        
+        
         
         
         // this how we write functions, no need to write void
