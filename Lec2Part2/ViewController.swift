@@ -9,13 +9,51 @@
 
 import UIKit
 
+
+// this is the Global workSpace
+// in swift i can do declarions, and only declaritions!!! here
+
+// don't start coding here like loops etc...
+
+
+// In swift functions can be global, outside the class, we never had that in Java
+// inside class: methood
+// outside class: function
+func woot(){
+    // global
+}
+
+func createARandom(upperLimit: Int)->(Int) {
+    // there's a global function to preduce random numbers
+    // UInt32 is a positive integer 32 bit - Unsigned
+    
+    //init UInt32(10) -> upper = 10
+    let upper = UInt32(upperLimit)
+    //random UInt32(0...<10)
+    let randomNumber = arc4random_uniform(upper)
+    // convert to int
+    let r = Int(randomNumber)
+    // return
+    return r
+}
+
 class ViewController: UIViewController {
 
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         // this type is [String: [Int]] meaning the keys are Strings and the Values are Strings
         
+        
+        let btn = UIButton()
+        btn.isEnabled = false // regular method, because it is related to an object
+        // Global function print
+        print("hi, i'm print function, i'm a global function. you can call me from everywhere in the program")
+        
+        print("Here is a random number")
+        print(createARandom(upperLimit: 10))
         
         
         // this how we write functions, no need to write void
@@ -113,6 +151,40 @@ class ViewController: UIViewController {
         print("Avg: \(improvedStatistics(arr: testArry).avg)")
         print("Sum: \(improvedStatistics(arr: testArry).sum)")
         
+        
+        
+        // Ok lets start some new material about functions in swift
+        
+        funcParams(x: 10)
+        
+        // In swift i can do func overloading with the same functions just diffrent parmeters names
+        
+        
+        // call a function without parmeters names
+        aFunctionWithNoParmeterName("roey")
+        
+        // End of ViewDidLoad main func
+        
+    }
+    
+    func funcParams(x: Int) {
+        for i in 0...x{
+            print(i)
+        }
+    }
+    
+    // in Swift i can do funcion overloading even if the same name functions recive the same type parmaeters.
+    // just change the names of the parmeters
+    func saveTheTime(day: String){
+        print("Saving you the \(day)")
+    }
+    
+    func saveTheTime(dayLiteral: String){
+        print("Saving you the \(dayLiteral)")
+    }
+    
+    func aFunctionWithNoParmeterName(_ toPrint: String) {
+        print(toPrint)
     }
 
     override func didReceiveMemoryWarning() {
