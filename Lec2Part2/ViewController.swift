@@ -105,7 +105,7 @@ class ViewController: UIViewController {
         
         //Tupple = retrun whatever you want
         func statistics(arr:[Int])->(Int,Int,Double,Double){
-            return (maxOfArray(arr: arr),minOfArray(arr: arr),sumOfArray(arr: arr),AverageOfArray(arr: arr)) // HW...
+            return (maxOfArray(arr: arr),minOfArray(arr: arr),sumOfArray(arr: arr),AverageOfArray(arr: arr))
         }
         // function with Argument labels
         func sayHello(to name:String, on birthday:String){
