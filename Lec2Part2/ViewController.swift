@@ -68,7 +68,7 @@ class ViewController: UIViewController {
             print("Hello, \(to)")
         }
         
-        
+        let testArry = [7,9,4,2]
         
         func maxOfArray(arr:[Int])->Int{
             var max = arr[0]
@@ -104,8 +104,8 @@ class ViewController: UIViewController {
         }
         
         //Tupple = retrun whatever you want
-        func statistics(arr:[Int])->(Int,Int,Int,Double){
-            return (0,0,0,0.0) // HW...
+        func statistics(arr:[Int])->(Int,Int,Double,Double){
+            return (maxOfArray(arr: arr),minOfArray(arr: arr),sumOfArray(arr: arr),AverageOfArray(arr: arr)) // HW...
         }
         // function with Argument labels
         func sayHello(to name:String, on birthday:String){
@@ -116,11 +116,12 @@ class ViewController: UIViewController {
         //caling the function
         sayHello(to: "roey", on: "2.8.1982")
         
-        let testArry = [7,9,4,2]
+        
         print("The max in the Array: \(maxOfArray(arr: testArry))")
         print("The min in the Array: \(minOfArray(arr: testArry))")
         print("The sum of the Array: \(sumOfArray(arr: testArry))")
         print("The Average of the Array: \(AverageOfArray(arr: testArry))")
+        print("The Tupple is: \(statistics(arr: testArry))")
         
         
     }
