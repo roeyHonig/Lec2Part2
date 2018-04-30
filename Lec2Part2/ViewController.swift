@@ -110,8 +110,8 @@ class ViewController: UIViewController {
             let avg = AverageOfArray(arr: arr)
             return (max,min,sum,avg)
         }
-        
-        
+        print("Avg: \(improvedStatistics(arr: testArry).avg)")
+        print("Sum: \(improvedStatistics(arr: testArry).sum)")
         
     }
 
