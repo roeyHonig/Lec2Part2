@@ -37,6 +37,114 @@ func createARandom(upperLimit: Int)->(Int) {
     return r
 }
 
+
+// unlike in java where they don't use enum but insted create class with public static final fields
+// in Swift they love enum
+//❤️♠️♦️♣️
+let 👮 = "Money :)"
+
+enum Suit {
+    case Spades
+    case Hearts
+    case Diamonds, Clubs
+    
+    func getDescription() -> String{
+        switch self {
+        case .Clubs:
+            return "♣️"
+        case .Hearts:
+            return "❤️"
+        case .Spades:
+            return "♠️"
+        case .Diamonds:
+            return "♦️"
+        
+        }
+    }
+    
+    enum Rank {
+        case two, three, four, five, six, seven, eight, nine, ten
+        case Jack , Queen , King, Ace
+        var numericValue: Int {
+            switch self {
+            case .two:
+                return 2
+            case .three:
+                return 3
+            case .four:
+                return 4
+            case .five:
+                return 5
+            case .six:
+                return 6
+            case .seven:
+                return 7
+            case .eight:
+                return 8
+            case .nine:
+                return 9
+            case .ten:
+                return 10
+            case .Jack:
+                return 11
+            case .Queen:
+                return 12
+            case .King:
+                return 13
+            case .Ace:
+                return 21
+            }
+        }
+    }
+    
+    //!!!! very important, insted of a method i can treat this as a computed property
+    var description: String {
+        switch self {
+        case .Clubs:
+            return "♣️"
+            
+        default:
+            return "@#!"
+        }    }
+}
+
+//property getter in swift
+class Person{
+    //constructor??
+    var firstName: String
+    var lastName: String
+    
+    //!!!!!!!!!!!very important
+    //what is a computed property
+    var fullName: String {
+        return "\(self.firstName) - \(self.lastName)"
+    }
+    // !!!!!!!!very important
+    
+    // this is the constractor in swift
+    init(firstName: String, lastName: String){
+        self.firstName = firstName
+        self.lastName = lastName
+    }
+}
+
+enum Direction {
+    case north, south, east, west
+    var oppesite: String{
+        switch self {
+        case .north:
+            return "south"
+        case .south:
+            return "north"
+        case .east:
+            return "west"
+        case .west:
+            return "east"
+        }
+    }
+}
+
+
 class ViewController: UIViewController {
 
     
@@ -46,6 +154,18 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         // this type is [String: [Int]] meaning the keys are Strings and the Values are Strings
         
+        let userChoice = Direction.north
+        switch userChoice {
+        case Direction.north:
+            print(userChoice)
+        case Direction.south:
+            print(userChoice)
+        case Direction.east:
+            print(userChoice)
+        case Direction.west:
+            print(userChoice)
+        
+        }
         
         let btn = UIButton()
         btn.isEnabled = false // regular method, because it is related to an object
@@ -62,101 +182,101 @@ class ViewController: UIViewController {
         
         
         
-        // this how we write functions, no need to write void
-        func sayHello(){
+                // this how we write functions, no need to write void
+                func sayHello(){
+                    
+                }
             
-        }
-        
-        func sayHello(to:String){
-            print("Hello, \(to)")
-        }
-        
-        let testArry = [7,9,4,2]
-        
-        func maxOfArray(arr:[Int])->Int{
-            var max = arr[0]
-            for item in arr {
-                if item > max {
-                    max = item
+                func sayHello(to:String){
+                    print("Hello, \(to)")
                 }
-            }
-            return max
-        }
-        
-        func minOfArray(arr:[Int])->Int{
-            var min = arr[0]
-            for item in arr {
-                if item < min {
-                    min = item
+            
+                let testArry = [7,9,4,2]
+            
+                func maxOfArray(arr:[Int])->Int{
+                    var max = arr[0]
+                    for item in arr {
+                        if item > max {
+                            max = item
+                        }
+                    }
+                    return max
                 }
-            }
-            return min
-        }
-        
-        func AverageOfArray(arr:[Int])->Double{
-            let avg = Double(sumOfArray(arr: arr)) / Double(arr.count)
-            return avg
-        }
-        // tryme
-        func sumOfArray(arr:[Int])->Int{
-            var sum = 0
-            for item in arr {
-                sum = sum + item
-            }
-            return sum
-        }
-        
-        //Tupple = retrun whatever you want
-        func statistics(arr:[Int])->(Int,Int,Int,Double){
-            let max = maxOfArray(arr: arr)
-            let min = minOfArray(arr: arr)
-            let sum = sumOfArray(arr: arr)
-            let ave = AverageOfArray(arr: arr)
-            return (max,min,sum,ave)
-        }
-        // function with Argument labels
-        func sayHello(to name:String, on birthday:String){
-            // if birthday
-            print("Hello, \(name) , happy bithday")
-        }
-    
-        //caling the function
-        sayHello(to: "roey", on: "2.8.1982")
-        
-        print("Array: \(testArry)")
-        print("The max in the Array: \(maxOfArray(arr: testArry))")
-        print("The min in the Array: \(minOfArray(arr: testArry))")
-        print("The sum of the Array: \(sumOfArray(arr: testArry))")
-        print("The Average of the Array: \(AverageOfArray(arr: testArry))")
-        print("The Tupple is: \(statistics(arr: testArry))")
-        
-        // lets dive a bit into Tupple
-        // option 1:
-        // assign the tupple to a single variable
-        let stats = statistics(arr: testArry)
-        print("Avg: \(stats.3)")
-        print("Sum: \(stats.2)")
-        
-        //option2:
-        //Tuple Destructring
-        // the underscore "_" is the fix of the warning to why do we declare locale variables but never use them
-        // so the "_" tells swift, ok, i don't care about them, go ahead and garbage collect them right now
-        let (_, _, sum, avg) = statistics(arr: testArry)
-        print("Avg: \(avg)")
-        print("Sum: \(sum)")
-        
-        //option3:
-        //Tuple - adding names to the expectedd results of the function
-        func improvedStatistics(arr:[Int])->(min:Int, max: Int, sum: Int, avg: Double){
-            let max = maxOfArray(arr: arr)
-            let min = minOfArray(arr: arr)
-            let sum = sumOfArray(arr: arr)
-            let avg = AverageOfArray(arr: arr)
-            return (max,min,sum,avg)
-        }
-        print("Avg: \(improvedStatistics(arr: testArry).avg)")
-        print("Sum: \(improvedStatistics(arr: testArry).sum)")
-        
+            
+                func minOfArray(arr:[Int])->Int{
+                    var min = arr[0]
+                    for item in arr {
+                        if item < min {
+                            min = item
+                        }
+                    }
+                    return min
+                }
+            
+                func AverageOfArray(arr:[Int])->Double{
+                    let avg = Double(sumOfArray(arr: arr)) / Double(arr.count)
+                    return avg
+                }
+                // tryme
+                func sumOfArray(arr:[Int])->Int{
+                    var sum = 0
+                    for item in arr {
+                        sum = sum + item
+                    }
+                    return sum
+                }
+            
+                //Tupple = retrun whatever you want
+                func statistics(arr:[Int])->(Int,Int,Int,Double){
+                    let max = maxOfArray(arr: arr)
+                    let min = minOfArray(arr: arr)
+                    let sum = sumOfArray(arr: arr)
+                    let ave = AverageOfArray(arr: arr)
+                    return (max,min,sum,ave)
+                }
+                // function with Argument labels
+                func sayHello(to name:String, on birthday:String){
+                    // if birthday
+                    print("Hello, \(name) , happy bithday")
+                }
+            
+                //caling the function
+                sayHello(to: "roey", on: "2.8.1982")
+            
+                print("Array: \(testArry)")
+                print("The max in the Array: \(maxOfArray(arr: testArry))")
+                print("The min in the Array: \(minOfArray(arr: testArry))")
+                print("The sum of the Array: \(sumOfArray(arr: testArry))")
+                print("The Average of the Array: \(AverageOfArray(arr: testArry))")
+                print("The Tupple is: \(statistics(arr: testArry))")
+            
+                // lets dive a bit into Tupple
+                // option 1:
+                // assign the tupple to a single variable
+                let stats = statistics(arr: testArry)
+                print("Avg: \(stats.3)")
+                print("Sum: \(stats.2)")
+            
+                //option2:
+                //Tuple Destructring
+                // the underscore "_" is the fix of the warning to why do we declare locale variables but never use them
+                // so the "_" tells swift, ok, i don't care about them, go ahead and garbage collect them right now
+                let (_, _, sum, avg) = statistics(arr: testArry)
+                print("Avg: \(avg)")
+                print("Sum: \(sum)")
+            
+                //option3:
+                //Tuple - adding names to the expectedd results of the function
+                func improvedStatistics(arr:[Int])->(min:Int, max: Int, sum: Int, avg: Double){
+                    let max = maxOfArray(arr: arr)
+                    let min = minOfArray(arr: arr)
+                    let sum = sumOfArray(arr: arr)
+                    let avg = AverageOfArray(arr: arr)
+                    return (max,min,sum,avg)
+                }
+                print("Avg: \(improvedStatistics(arr: testArry).avg)")
+                print("Sum: \(improvedStatistics(arr: testArry).sum)")
+            
         
         
         // Ok lets start some new material about functions in swift
