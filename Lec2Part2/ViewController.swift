@@ -43,7 +43,7 @@ func createARandom(upperLimit: Int)->(Int) {
 //❤️♠️♦️♣️
 let 👮 = "Money :)"
 
-enum Suit {
+enum Suit: Int {
     case Spades
     case Hearts
     case Diamonds, Clubs
@@ -163,6 +163,57 @@ class ViewController: UIViewController {
         
         // here we can use the global enum Rank we created
         let cardRank:Int = Rank.Ace.numericValue
+        
+        // now let's imagine, i use a random function and i get an int
+        // ok, so i have an int, how can i find the appropriate Rank to that int
+        // i know to do the other way around, that is have a Rank and find the Int, but what
+        // if i allready have an Int
+        // so the solution swift offers is a sort of constractor for Rank
+        
+        // this Rank constractor returns an optional Rank?
+        //why optional?, because look at what i did, i've entered a 32 Int
+        // the Enum Rank will not know what to do with 32
+        
+        for _i in 1...100 {
+            let rankRandom = createARandom(upperLimit: 13) + 2
+            let suitRandom = createARandom(upperLimit: 4)
+            if let rank = Rank(rawValue: rankRandom){
+                // why did we do a if let, because it's optional
+                // let's try to draw  card, also suitwise
+                if let suite = Suit(rawValue: suitRandom){
+                    print ("\(suite.getDescription()) \(rank.numericValue) \(rank.description)")
+                    
+                }
+                
+            }
+            
+        }
+        
+        // so what is a blackJack Car?
+        // properties: suit, rank , value (computed property) , description (computed property), init(suit, rank)
+        class BlackJackCard{
+            //properties: also computed ones...!
+            var rank:Rank
+            var suite:Suit
+            
+            var value:Int{
+                return rank.numericValue
+            }
+            
+            var description: String{
+                return ("\(suite.getDescription()) \(rank.numericValue)")
+            }
+            
+            init(rank:Rank, suite:Suit) {
+                self.rank = rank
+                self.suite = suite
+            }
+            
+        }
+        
+        
+        
+        
         
         
         
