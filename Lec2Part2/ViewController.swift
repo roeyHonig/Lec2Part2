@@ -62,37 +62,36 @@ enum Suit {
         }
     }
     
-    enum Rank {
-        case two, three, four, five, six, seven, eight, nine, ten
+    
+    // !!! very important i can assign value (Strings or Int) directlly to the identifiers
+    // and here's the kicker, if two = 2 , it will continue to add values, swift will
+    // infar that three = 3 without me telling it
+    enum Rank: Int {
+        case two = 2, three, four, five, six, seven, eight, nine, ten
         case Jack , Queen , King, Ace
+        var description: String{
+            switch self {
+            case .Jack:
+                return "Jack"
+            case .Queen:
+                return "Queen"
+            case .King:
+                return "King"
+            case .Ace:
+                return "Ace"
+            default:
+                return "\(rawValue)"
+            }
+        }
+        
         var numericValue: Int {
             switch self {
-            case .two:
-                return 2
-            case .three:
-                return 3
-            case .four:
-                return 4
-            case .five:
-                return 5
-            case .six:
-                return 6
-            case .seven:
-                return 7
-            case .eight:
-                return 8
-            case .nine:
-                return 9
-            case .ten:
+            case .Jack, .Queen, .King:
                 return 10
-            case .Jack:
-                return 11
-            case .Queen:
-                return 12
-            case .King:
-                return 13
             case .Ace:
-                return 21
+                return 11
+            default:
+                return rawValue
             }
         }
     }
@@ -143,6 +142,8 @@ enum Direction {
         }
     }
 }
+
+
 
 
 class ViewController: UIViewController {
