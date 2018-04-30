@@ -63,49 +63,55 @@ enum Suit {
     }
     
     
-    // !!! very important i can assign value (Strings or Int) directlly to the identifiers
-    // and here's the kicker, if two = 2 , it will continue to add values, swift will
-    // infar that three = 3 without me telling it
-    enum Rank: Int {
-        case two = 2, three, four, five, six, seven, eight, nine, ten
-        case Jack , Queen , King, Ace
-        var description: String{
-            switch self {
-            case .Jack:
-                return "Jack"
-            case .Queen:
-                return "Queen"
-            case .King:
-                return "King"
-            case .Ace:
-                return "Ace"
-            default:
-                return "\(rawValue)"
-            }
-        }
-        
-        var numericValue: Int {
-            switch self {
-            case .Jack, .Queen, .King:
-                return 10
-            case .Ace:
-                return 11
-            default:
-                return rawValue
-            }
-        }
-    }
     
     //!!!! very important, insted of a method i can treat this as a computed property
     var description: String {
         switch self {
         case .Clubs:
             return "♣️"
-            
         default:
             return "@#!"
-        }    }
+        }
+        
+    }
 }
+
+
+
+// !!! very important i can assign value (Strings or Int) directlly to the identifiers
+// and here's the kicker, if two = 2 , it will continue to add values, swift will
+// infar that three = 3 without me telling it
+enum Rank: Int {
+    
+    case two = 2, three, four, five, six, seven, eight, nine, ten
+    case Jack , Queen , King, Ace
+    var description: String{
+        switch self {
+        case .Jack:
+            return "Jack"
+        case .Queen:
+            return "Queen"
+        case .King:
+            return "King"
+        case .Ace:
+            return "Ace"
+        default:
+            return "\(rawValue)"
+        }
+    }
+    
+    var numericValue: Int {
+        switch self {
+        case .Jack, .Queen, .King:
+            return 10
+        case .Ace:
+            return 11
+        default:
+            return rawValue
+        }
+    }
+}
+
 
 //property getter in swift
 class Person{
@@ -154,6 +160,11 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         // this type is [String: [Int]] meaning the keys are Strings and the Values are Strings
+        
+        // here we can use the global enum Rank we created
+        let cardRank:Int = Rank.Ace.numericValue
+        
+        
         
         let userChoice = Direction.north
         switch userChoice {
