@@ -91,20 +91,20 @@ class ViewController: UIViewController {
         }
         
         func AverageOfArray(arr:[Int])->Double{
-            let avg = sumOfArray(arr: arr) / Double(arr.count)
+            let avg = Double(sumOfArray(arr: arr)) / Double(arr.count)
             return avg
         }
         // tryme
-        func sumOfArray(arr:[Int])->Double{
-            var sum = 0.0
+        func sumOfArray(arr:[Int])->Int{
+            var sum = 0
             for item in arr {
-                sum = sum + Double(item)
+                sum = sum + item
             }
             return sum
         }
         
         //Tupple = retrun whatever you want
-        func statistics(arr:[Int])->(Int,Int,Double,Double){
+        func statistics(arr:[Int])->(Int,Int,Int,Double){
             return (maxOfArray(arr: arr),minOfArray(arr: arr),sumOfArray(arr: arr),AverageOfArray(arr: arr))
         }
         // function with Argument labels
@@ -116,7 +116,7 @@ class ViewController: UIViewController {
         //caling the function
         sayHello(to: "roey", on: "2.8.1982")
         
-        
+        print("Array: \(testArry)")
         print("The max in the Array: \(maxOfArray(arr: testArry))")
         print("The min in the Array: \(minOfArray(arr: testArry))")
         print("The sum of the Array: \(sumOfArray(arr: testArry))")
