@@ -14,7 +14,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        // this type is [String: [Int]] meaning the keys are Strings and the Values are Strings
+        // this type is [String: [Int]] meaning the keys are Strings and the Values are Int Array
         let dictOfSeries = [
             "Prime": [2,3,5,7,11,13],
             "Fibonachy": [1,1,2,3,5,8,13],
