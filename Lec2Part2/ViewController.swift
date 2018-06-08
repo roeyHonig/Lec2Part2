@@ -47,16 +47,18 @@ class ViewController: UIViewController {
             print("nil")
         }
         
-        var max = 0
+        var max = dictOfSeries["Prime"]![0]
+        var nameOfArray = "Prime"
         // write code that finds the max value in all the series :-)
         for (name, arr) in dictOfSeries{
             for item in arr {
                 if item > max {
                     max = item
+                    nameOfArray = name
                 }
             }
         }
-        print(max)
+        print("The Largest number in this dictionary is \(max) and it can be found in the \(nameOfArray) series")
         
         
         // this how we write functions, no need to write void
