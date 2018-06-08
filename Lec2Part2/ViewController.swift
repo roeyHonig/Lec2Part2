@@ -109,7 +109,7 @@ class ViewController: UIViewController {
         func statistics(arr:[Int])->(Int,Int,Int,Double){
             return (maxOfArray(arr: arr),minOfArray(arr: arr),sumOfArray(arr: arr),AverageOfArray(arr: arr))
         }
-        // function with Argument labels
+        // function with Argument labels - it goes argument label - blank space - the name of the argument. "to" is a label, "name" is the argument
         func sayHello(to name:String, on birthday:String){
             // if birthday
             print("Hello, \(name) , happy bithday")
