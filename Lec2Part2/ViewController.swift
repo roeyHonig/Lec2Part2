@@ -40,7 +40,7 @@ func createARandom(upperLimit: Int)->(Int) {
 
 // unlike in java where they don't use enum but insted create class with public static final fields
 // in Swift they love enum
-//❤️♠️♦️♣️
+//❤️♠️♦️♣️  - Edit-> emoji & symbols
 let 👮 = "Money :)"
 
 enum Suit: Int {
@@ -173,6 +173,8 @@ class ViewController: UIViewController {
         // this Rank constractor returns an optional Rank?
         //why optional?, because look at what i did, i've entered a 32 Int
         // the Enum Rank will not know what to do with 32
+        
+        
         
         for _i in 1...100 {
             let rankRandom = createARandom(upperLimit: 13) + 2
